@@ -70,3 +70,5 @@ function playSet(){
 
     console.log(`GAME FINISHED ${winner} WINS!`);
 }
+
+playSet();
