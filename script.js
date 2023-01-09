@@ -20,19 +20,22 @@ function getComputerChoice(){
 function compareChoices(playerChoice, computerChoice){
     console.log(`Your choice: ${playerChoice} - Computer's choice: ${computerChoice}`);
     if (playerChoice == computerChoice){
-        return "tie";
+        console.log(`It's a tie!`);
+        return "Tie";
     } else if (
         (playerChoice == "Rock" && computerChoice == "Scissors") ||
         (playerChoice == "Scissors" && computerChoice == "Paper") ||
         (playerChoice == "Paper" && computerChoice == "Rock")
     ) {
-        return "win";
+        console.log(`You Win!`);
+        return "Win";
     } else if (
         (playerChoice == "Rock" && computerChoice == "Paper") ||
         (playerChoice == "Scissors" && computerChoice == "Rock") ||
         (playerChoice == "Paper" && computerChoice == "Scissors")
     ) {
-        return "lose";
+        console.log(`You lose!`);
+        return "Lose";
     }
 }
 //userCounter and computerCounter
@@ -41,16 +44,29 @@ function playRound(){
 }
 
 //Bo5 loop if a player wins 3 rounds it's over
-/*function playBo5(){
+function playSet(){
     let userWinCount = 0;
     let computerWinCount = 0;
     let roundNumber = 1;
 
     while (userWinCount <3 && computerWinCount <3){
-        console.log(`Round number: ${roundNumber}`);
 
-        playRound()
+        console.log(`ROUND NUMBER: ${roundNumber}`);
 
+        let roundResult = playRound();
+
+        if (roundResult == "Win"){
+            userWinCount+=1;
+        } else if (roundResult == "Lose"){
+            computerWinCount+=1;
         }
-        roundNumber++;
-}*/
+        console.log(`USER WINS: ${userWinCount} - ${computerWinCount} :COMPUTER WINS`);
+        console.log("");
+        roundNumber+=1;
+        }
+    let winner;
+    if (userWinCount == 3){winner="user"}
+    else{winner="computer"}
+
+    console.log(`GAME FINISHED ${winner} WINS!`);
+}
