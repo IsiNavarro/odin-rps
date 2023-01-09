@@ -1,10 +1,9 @@
-// Get players choice
 function getPlayerChoice(){
     let playerChoice = prompt("Choose your weapon: Rock, Paper or Scissors? ");
     let capitalizedPlayerChoice = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1).toLowerCase();
     return capitalizedPlayerChoice;
 }
-// Get computers choice
+
 function getComputerChoice(){
     let randomInt = Math.floor(Math.random() * (3)+1);
     switch (randomInt){
@@ -16,7 +15,7 @@ function getComputerChoice(){
             return "Scissors";
     }
 }
-// Compare choices
+
 function compareChoices(playerChoice, computerChoice){
     console.log(`Your choice: ${playerChoice} - Computer's choice: ${computerChoice}`);
     if (playerChoice == computerChoice){
@@ -38,12 +37,11 @@ function compareChoices(playerChoice, computerChoice){
         return "Lose";
     }
 }
-//userCounter and computerCounter
+
 function playRound(){
     return compareChoices(getPlayerChoice(), getComputerChoice());
 }
 
-//Bo5 loop if a player wins 3 rounds it's over
 function playSet(){
     let userWinCount = 0;
     let computerWinCount = 0;
@@ -70,5 +68,7 @@ function playSet(){
 
     console.log(`GAME FINISHED ${winner} WINS!`);
 }
+
+
 
 playSet();
