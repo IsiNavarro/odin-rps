@@ -36,4 +36,21 @@ function compareChoices(playerChoice, computerChoice){
     }
 }
 //userCounter and computerCounter
+function playRound(){
+    return compareChoices(getPlayerChoice(), getComputerChoice());
+}
+
 //Bo5 loop if a player wins 3 rounds it's over
+/*function playBo5(){
+    let userWinCount = 0;
+    let computerWinCount = 0;
+    let roundNumber = 1;
+
+    while (userWinCount <3 && computerWinCount <3){
+        console.log(`Round number: ${roundNumber}`);
+
+        playRound()
+
+        }
+        roundNumber++;
+}*/
