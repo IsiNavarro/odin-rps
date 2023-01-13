@@ -1,8 +1,7 @@
-function getPlayerChoice(){
-    let playerChoice = prompt("Choose your weapon: Rock, Paper or Scissors? ");
-    let capitalizedPlayerChoice = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1).toLowerCase();
-    return capitalizedPlayerChoice;
-}
+function getPlayerChoice(e){
+    const playerChoice = `${e.target.innerHTML}`;
+    return playerChoice;
+};
 
 function getComputerChoice(){
     let randomInt = Math.floor(Math.random() * (3)+1);
@@ -14,7 +13,7 @@ function getComputerChoice(){
         case 3:
             return "Scissors";
     }
-}
+};
 
 function compareChoices(playerChoice, computerChoice){
     console.log(`Your choice: ${playerChoice} - Computer's choice: ${computerChoice}`);
@@ -36,39 +35,48 @@ function compareChoices(playerChoice, computerChoice){
         console.log(`You lose!`);
         return "Lose";
     }
-}
+};
 
-function playRound(){
-    return compareChoices(getPlayerChoice(), getComputerChoice());
-}
+function playAgain(){
+    userWinCount = 0;
+    computerWinCount = 0;
+};
 
-function playSet(){
-    let userWinCount = 0;
-    let computerWinCount = 0;
-    let roundNumber = 1;
+function playRound(e){
+    const playerChoice = getPlayerChoice(e);
+    const computerChoice = getComputerChoice();
 
-    while (userWinCount <3 && computerWinCount <3){
+    let roundResult = compareChoices(playerChoice, computerChoice);
 
-        console.log(`ROUND NUMBER: ${roundNumber}`);
+    if (roundResult == "Win"){
+        userWinCount+=1;
+    } else if (roundResult == "Lose"){
+        computerWinCount+=1;
+    }
+    console.log(`USER WINS: ${userWinCount} - ${computerWinCount} :COMPUTER WINS`);
 
-        let roundResult = playRound();
+    //Stop set when a player has won 3 games
+    if (userWinCount == 3 || computerWinCount == 3) {
+        console.log('Bo5 Finished\n\n\n\n\n');
+        
+        /*
+            Ask for user input to play again. New popup button:
+            newButton.addEventListener('click', playAgain);
+        */
+       playAgain();
 
-        if (roundResult == "Win"){
-            userWinCount+=1;
-        } else if (roundResult == "Lose"){
-            computerWinCount+=1;
-        }
-        console.log(`USER WINS: ${userWinCount} - ${computerWinCount} :COMPUTER WINS`);
-        console.log("");
-        roundNumber+=1;
-        }
-    let winner;
-    if (userWinCount == 3){winner="user"}
-    else{winner="computer"}
-
-    console.log(`GAME FINISHED ${winner} WINS!`);
-}
+    };
+    
+};
 
 
 
-playSet();
+// playSet();
+const weapons = document.querySelectorAll('kbd');
+
+let userWinCount = 0;
+let computerWinCount = 0;
+
+weapons.forEach(weapon => {
+    weapon.addEventListener('click', playRound)
+});
