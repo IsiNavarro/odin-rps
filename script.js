@@ -16,23 +16,28 @@ function getComputerChoice(){
 };
 
 function compareChoices(playerChoice, computerChoice){
-    console.log(`Your choice: ${playerChoice} - Computer's choice: ${computerChoice}`);
+    playerSelectionDisplay.textContent = playerChoice;
+    computerSelectionDisplay.textContent = computerChoice;
+
     if (playerChoice == computerChoice){
-        console.log(`It's a tie!`);
+        infoWinLoseText.textContent = `It's a tie!`;
+        infoFinishedGameText.textContent = `-- ${playerChoice} equals ${computerChoice} --`;
         return "Tie";
     } else if (
         (playerChoice == "Rock" && computerChoice == "Scissors") ||
         (playerChoice == "Scissors" && computerChoice == "Paper") ||
         (playerChoice == "Paper" && computerChoice == "Rock")
     ) {
-        console.log(`You Win!`);
+        infoWinLoseText.textContent = `You Win!`;
+        infoFinishedGameText.textContent = `-- ${playerChoice} beats ${computerChoice} --`;
         return "Win";
     } else if (
         (playerChoice == "Rock" && computerChoice == "Paper") ||
         (playerChoice == "Scissors" && computerChoice == "Rock") ||
         (playerChoice == "Paper" && computerChoice == "Scissors")
     ) {
-        console.log(`You lose!`);
+        infoWinLoseText.textContent = `You lose!`;
+        infoFinishedGameText.textContent = `-- ${playerChoice} is beaten by ${computerChoice} --`;
         return "Lose";
     }
 };
@@ -53,11 +58,12 @@ function playRound(e){
     } else if (roundResult == "Lose"){
         computerWinCount+=1;
     }
-    console.log(`USER WINS: ${userWinCount} - ${computerWinCount} :COMPUTER WINS`);
+    playerScore.textContent = `Player wins: ${userWinCount}`;
+    computerScore.textContent = `Computer wins: ${computerWinCount}`;
 
     //Stop set when a player has won 3 games
     if (userWinCount == 3 || computerWinCount == 3) {
-        console.log('Bo5 Finished\n\n\n\n\n');
+        infoFinishedGameText.textContent = 'BEST OF 5 FINISHED!\nPLAY AGAIN!!';
         
         /*
             Ask for user input to play again. New popup button:
@@ -71,8 +77,14 @@ function playRound(e){
 
 
 
-// playSet();
 const weapons = document.querySelectorAll('kbd');
+const playerScore = document.querySelector('#playerScore');
+const computerScore = document.querySelector('#computerScore');
+const infoWinLoseText = document.querySelector('.infoText h3');
+const infoFinishedGameText = document.querySelector('.infoText p');
+const playerSelectionDisplay = document.querySelector('#playerSelectionDisplay h2');
+const computerSelectionDisplay = document.querySelector('#computerSelectionDisplay h2');
+
 
 let userWinCount = 0;
 let computerWinCount = 0;
