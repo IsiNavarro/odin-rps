@@ -7,11 +7,11 @@ function getComputerChoice(){
     let randomInt = Math.floor(Math.random() * (3)+1);
     switch (randomInt){
         case 1:
-            return "Rock";
+            return "✊";
         case 2:
-            return "Paper";
+            return "✋";
         case 3:
-            return "Scissors";
+            return "✌";
     }
 };
 
@@ -20,24 +20,21 @@ function compareChoices(playerChoice, computerChoice){
     computerSelectionDisplay.textContent = computerChoice;
 
     if (playerChoice == computerChoice){
-        infoWinLoseText.textContent = `It's a tie!`;
-        infoFinishedGameText.textContent = `-- ${playerChoice} equals ${computerChoice} --`;
+        infoWinLoseText.textContent = `It's a tie!`;    
         return "Tie";
     } else if (
-        (playerChoice == "Rock" && computerChoice == "Scissors") ||
-        (playerChoice == "Scissors" && computerChoice == "Paper") ||
-        (playerChoice == "Paper" && computerChoice == "Rock")
+        (playerChoice == "✊" && computerChoice == "✌") ||
+        (playerChoice == "✌" && computerChoice == "✋") ||
+        (playerChoice == "✋" && computerChoice == "✊")
     ) {
         infoWinLoseText.textContent = `You Win!`;
-        infoFinishedGameText.textContent = `-- ${playerChoice} beats ${computerChoice} --`;
         return "Win";
     } else if (
-        (playerChoice == "Rock" && computerChoice == "Paper") ||
-        (playerChoice == "Scissors" && computerChoice == "Rock") ||
-        (playerChoice == "Paper" && computerChoice == "Scissors")
+        (playerChoice == "✊" && computerChoice == "✋") ||
+        (playerChoice == "✌" && computerChoice == "✊") ||
+        (playerChoice == "✋" && computerChoice == "✌")
     ) {
         infoWinLoseText.textContent = `You lose!`;
-        infoFinishedGameText.textContent = `-- ${playerChoice} is beaten by ${computerChoice} --`;
         return "Lose";
     }
 };
@@ -48,6 +45,7 @@ function playAgain(){
 };
 
 function playRound(e){
+    infoFinishedGameText.textContent = 'First to score 3 points wins the game.'
     const playerChoice = getPlayerChoice(e);
     const computerChoice = getComputerChoice();
 
@@ -58,8 +56,8 @@ function playRound(e){
     } else if (roundResult == "Lose"){
         computerWinCount+=1;
     }
-    playerScore.textContent = `Player wins: ${userWinCount}`;
-    computerScore.textContent = `Computer wins: ${computerWinCount}`;
+    playerScore.textContent = `Player: ${userWinCount}`;
+    computerScore.textContent = `Computer: ${computerWinCount}`;
 
     //Stop set when a player has won 3 games
     if (userWinCount == 3 || computerWinCount == 3) {

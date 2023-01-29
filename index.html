@@ -7,38 +7,43 @@
     <title>Rock, paper, scissors!</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="header">
-        <h1>ROCK PAPER SCISSORS</h1>
-    </div>
-    <div class="infoText">
-        <h3>Choose your weapon</h3>
-        <p>First to score 3 points wins the game.</p>
-    </div>
-    <div class="playerSelectionAndCounter">
-        <div class="player">
-            <div class="selection" id="playerSelectionDisplay">
-                <h2>?</h2>
-            </div>
-            <div class="score" id="playerScore">
-                Player wins: 0
-            </div>
-        </div>
-        <div class="computer">
-            <div class="selection" id="computerSelectionDisplay">
-                <h2>?</h2>
-            </div>
-            <div class="score" id="computerScore">
-                Computer wins: 0
-            </div>
-        </div>
 
-    </div>
-    <div class="weapons">
-            <kbd class="weapon" id="Rock">Rock</kbd>
-            <kbd class="weapon" id="Paper">Paper</kbd>
-            <kbd class="weapon" id="Scissors">Scissors</kbd>
+
+    <div class="container">
+        <div class="infoText">
+            <h3>Choose your weapon</h3>
+            <p>First to score 3 points wins the game.</p>
+        </div>
+        <div class="playerSelectionAndCounter">
+            <div class="player">
+                <div class="selection" id="playerSelectionDisplay">
+                    <h2>?</h2>
+                </div>
+                <div class="score" id="playerScore">
+                    Player: 0
+                </div>
+            </div>
+            <div class="computer">
+                <div class="selection" id="computerSelectionDisplay">
+                    <h2>?</h2>
+                </div>
+                <div class="score" id="computerScore">
+                    Computer: 0
+                </div>
+            </div>
+
+        </div>
+        <div class="weapons">
+                <kbd class="weapon" id="Rock">✊</kbd>
+                <kbd class="weapon" id="Paper">✋</kbd>
+                <kbd class="weapon" id="Scissors">✌</kbd>
+        </div>
     </div>
 </body>
 </html>

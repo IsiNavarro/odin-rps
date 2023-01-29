@@ -1,21 +1,78 @@
+:root{
+    --palette1: #f9d465;
+    --palette2: #2f2d28;
+    --palette3: #edeeed;
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
-
+body{
+    background-color: var(--palette1);
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    height: 100vh;
+}
+.infoText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2.4rem;
+    color: var(--palette2);
+}
+.playerSelectionAndCounter{
+    display: flex;
+    height: 450px;
+    width: 600px;
+    background-color: var(--palette3);
+    border-radius: 20px ;
+    border: var(--palette2) solid 3px;
+}
+.player{
+    flex-grow: 1;
+}
+.computer{
+    flex-grow: 1;
+}
+.player, .computer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 2.5rem;
+}
+.selection{
+    font-weight: normal;
+    font-size: 10rem;
+    color: var(--palette2);
+}
+.score{
+    color: var(--palette2);
+}
 .weapons{
     display: flex;
     gap: 20px;
 }
 kbd{
     display: flex;
-    background-color: aquamarine;
+    background-color: var(--palette2);
+    color: var(--palette3);
     border-radius: 10px;
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    font-size: 1.1em;
+    font-size: 8rem;
+    border: var(--palette3) solid 3px;
+}
+kbd:hover{
+    cursor: pointer;
+    scale: 101%;
 }
